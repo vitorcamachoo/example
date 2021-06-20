@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useAtomValue } from 'jotai/utils'
 
-import { getPosts } from 'utils/api'
+import { getPosts, Post as PostType } from 'utils/api'
 import { filterPosts } from 'utils/filter'
 import searchAtom from 'atoms/search'
 
@@ -22,7 +22,7 @@ const PAGE_SIZE = 10
 const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [page, setPage] = useState(0)
   const { title, category } = useAtomValue(searchAtom)
-  const { data: posts, error } = useSWR('posts', getPosts, { initialData: props.posts })
+  const { data: posts, error } = useSWR('posts', getPosts, { initialData: props.posts as PostType[] })
   const isLoading = !posts && !error
 
   const filterData = useMemo(() => {
