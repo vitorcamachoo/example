@@ -22,7 +22,9 @@ const PAGE_SIZE = 10
 const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [page, setPage] = useState(0)
   const { title, category } = useAtomValue(searchAtom)
-  const { data: posts, error } = useSWR('posts', getPosts, { initialData: props.posts as PostType[] })
+  const { data: posts, error } = useSWR('posts', getPosts, {
+    initialData: props.posts as PostType[],
+  })
   const isLoading = !posts && !error
 
   const filterData = useMemo(() => {
@@ -49,7 +51,7 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <InputSearch placeholder="Type to search" />
       <PostsFilter />
       <div className={classes.content}>
-        <div className={classes.menu}>Menu!!</div>
+        <div className={classes.menu}>Menu</div>
         <div className={classes.list}>
           {isLoading ? (
             <> Loading...</>

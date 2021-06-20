@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SWRConfig
       value={{
-        refreshInterval: 3000,
+        revalidateOnFocus: false,
         fetcher: (_, init) => fetch(process.env.NEXT_PUBLIC_API_URL as string, init).then((res) => res.json()),
       }}
     >
