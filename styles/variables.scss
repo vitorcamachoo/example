@@ -1,0 +1,14 @@
+@import './colors.scss';
+
+// Breakpoints
+$breakpoints: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1920px,
+);
+
+$primary: $color--purple-600;
+$secondary: $color--teal-600;

@@ -1,0 +1,26 @@
+@import 'styles/mixins/spacing.scss';
+@import 'styles/mixins/media-queries.scss';
+@import 'styles/palette.scss';
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  @include grid(12);
+
+  input {
+    background-color: $transparent;
+    @include padding(2, 2);
+    outline: none;
+
+    caret-color: $secondary-dark;
+    display: block;
+    border: 0;
+    cursor: pointer;
+    font-size: 40px;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 16px;
+    line-height: 3;
+  }
+}

@@ -1,0 +1,75 @@
+@import 'styles/theme';
+
+.root {
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: $black;
+  margin-block-start: spacing(0);
+  margin-block-end: spacing(0);
+}
+
+// font type
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-family: Gilroy, arial, futura;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.h1 {
+  margin-block-start: spacing(4);
+  margin-block-end: spacing(4);
+}
+
+.h2 {
+  margin-block-start: spacing(3);
+  margin-block-end: spacing(3);
+}
+
+.h3 {
+  margin-block-start: spacing(2);
+  margin-block-end: spacing(2);
+}
+
+.subtitle1 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+}
+
+.subtitle2 {
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.57;
+  letter-spacing: -0.2px;
+}
+
+.body1 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.body2 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+}
+
+// colors
+.default {
+  color: $black;
+}
+
+.primary {
+  color: $primary-main;
+}
+
+.textSecondary {
+  color: lighten($black, 50%);
+}

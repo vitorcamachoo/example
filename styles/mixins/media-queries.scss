@@ -1,0 +1,39 @@
+@import '../variables.scss';
+
+// from 1 to 12
+@mixin grid($size) {
+  @if ($size <= 12 and $size > 0) {
+    width: #{($size/12 * 100%)};
+  }
+}
+
+@mixin xs {
+  @media screen and (max-width: #{map-get($breakpoints, sm)}-1) {
+    @content;
+  }
+}
+@mixin sm {
+  @media screen and (min-width: map-get($breakpoints, sm)) and (max-width: #{map-get($breakpoints, md)-1}) {
+    @content;
+  }
+}
+@mixin md {
+  @media screen and (min-width: map-get($breakpoints, md)) and (max-width: #{map-get($breakpoints, lg)-1}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (min-width: map-get($breakpoints, lg)) and (max-width: #{map-get($breakpoints, xl)-1}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media screen and (min-width: map-get($breakpoints, xl)) and (max-width: #{map-get($breakpoints, xxl)-1}) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media screen and (min-width: map-get($breakpoints, xxl)) {
+    @content;
+  }
+}

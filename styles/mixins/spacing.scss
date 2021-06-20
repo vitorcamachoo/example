@@ -1,0 +1,22 @@
+$factor: 8;
+
+// function to standardise spacing
+@function spacing($size) {
+  @return #{$size * $factor}px;
+}
+
+//padding mixin
+@mixin padding($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  padding-top: spacing($top);
+  padding-right: spacing($right);
+  padding-bottom: spacing($bottom);
+  padding-left: spacing($left);
+}
+
+//Margin mixin
+@mixin margin($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  margin-top: spacing($top);
+  margin-right: spacing($right);
+  margin-bottom: spacing($bottom);
+  margin-left: spacing($left);
+}

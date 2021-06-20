@@ -1,0 +1,31 @@
+@import 'styles/theme';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  padding: spacing(2.5);
+  padding: 16;
+  background-color: $white;
+  cursor: pointer;
+  margin-bottom: spacing(2);
+
+  &:hover {
+    box-shadow: lighten($black, 80%) 0px 3px 8px;
+  }
+
+  &:active {
+    background-color: darken($white, 2%);
+  }
+}
+
+.header {
+  margin-bottom: spacing(1);
+  & > * {
+    margin-right: spacing(1);
+  }
+
+  & > * {
+    padding-bottom: spacing(1);
+    text-transform: uppercase;
+  }
+}

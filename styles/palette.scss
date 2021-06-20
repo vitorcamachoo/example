@@ -1,0 +1,47 @@
+@import './variables.scss';
+@import './colors.scss';
+
+$color-variant-first: 20%;
+$color-variant-second: 50%;
+
+// Common colors
+$white: $color--white;
+$black: $color--black;
+$transparent: $color--transparent;
+
+// Theme palette variations
+$primary-main: $primary;
+$primary-light: lighten($primary-main, $color-variant-first);
+$primary-lighter: lighten($primary-main, $color-variant-second);
+$primary-dark: darken($primary-main, $color-variant-first);
+$primary-darker: darken($primary-main, $color-variant-second);
+
+$secondary-main: $secondary;
+$secondary-light: lighten($secondary-main, $color-variant-first);
+$secondary-lighter: lighten($secondary-main, $color-variant-second);
+$secondary-dark: darken($secondary-main, $color-variant-first);
+$secondary-darker: darken($secondary-main, $color-variant-second);
+
+$background-main: $color--purple-600;
+$background-light: lighten($background-main, $color-variant-first);
+$background-lighter: lighten($background-main, $color-variant-second);
+$background-dark: darken($background-main, $color-variant-first);
+$background-darker: darken($background-main, $color-variant-second);
+
+$success-main: $color--success;
+$success-light: lighten($success-main, $color-variant-first);
+$success-lighter: lighten($success-main, $color-variant-second);
+$success-dark: darken($success-main, $color-variant-first);
+$success-darker: darken($success-main, $color-variant-second);
+
+$error-main: $color--error;
+$error-light: lighten($error-main, $color-variant-first);
+$error-lighter: lighten($error-main, $color-variant-second);
+$error-dark: darken($error-main, $color-variant-first);
+$error-darker: darken($error-main, $color-variant-second);
+
+$warning-main: $color--warning;
+$warning-light: lighten($warning-main, $color-variant-first);
+$warning-lighter: lighten($warning-main, $color-variant-second);
+$warning-dark: darken($warning-main, $color-variant-first);
+$warning-darker: darken($warning-main, $color-variant-second);

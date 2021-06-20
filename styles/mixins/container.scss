@@ -1,0 +1,18 @@
+@import '../variables.scss';
+
+// // _container.scss
+// @mixin container($identifier: container) {
+//   $container: (
+//     '': 100%,
+//     '-sm': map-get($breakpoints, sm),
+//     '-md': map-get($breakpoints, md),
+//     '-lg': map-get($breakpoints, lg),
+//     '-xl': map-get($breakpoints, xl),
+//     '-xxl': map-get($breakpoints, xxl),
+//   );
+//   @each $prop, $value in $container {
+//     .#{$identifier}#{$prop} {
+//       max-width: $value;
+//     }
+//   }
+// }
