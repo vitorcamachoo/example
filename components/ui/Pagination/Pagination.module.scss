@@ -9,9 +9,11 @@
 
 .pagination {
   display: flex;
+  justify-content: center;
   list-style: none;
   outline: none;
   color: $black;
+  padding-inline-start: 0;
 
   & > li {
     @include margin(0, 0.25, 0, 0.25);

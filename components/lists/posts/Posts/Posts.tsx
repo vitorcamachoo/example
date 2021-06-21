@@ -4,18 +4,19 @@ import { format } from 'date-fns'
 import Typography from 'components/ui/Typography/Typography'
 import classes from './Posts.module.scss'
 
+import Skeleton from './Posts.skeleton'
 export interface PostsProps {
   posts?: PostApi[]
   total?: number
 }
 
-const Post: FC<PostsProps> = ({ posts, total }) => {
+const Posts: FC<PostsProps> & { Skeleton: JSX.Element } = ({ posts, total }) => {
   return (
     <div className={classes.root}>
       {total && <Typography variant="body2">Showing {total} results for "talkdesk"</Typography>}
 
       {posts?.map((post) => (
-        <a target={post.target} href={`https://www.talkdesk.com${post.url}`} rel="noopener noreferrer">
+        <a key={post.id} target={post.target} href={`https://www.talkdesk.com${post.url}`} rel="noopener noreferrer">
           <div className={classes.post}>
             <div className={classes.header}>
               <Typography variant="subtitle2" color="primary">
@@ -34,4 +35,6 @@ const Post: FC<PostsProps> = ({ posts, total }) => {
   )
 }
 
-export default Post
+Posts.Skeleton = <Skeleton />
+
+export default Posts

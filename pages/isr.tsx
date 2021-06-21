@@ -1,9 +1,10 @@
 import useSWR from 'swr'
 import clsx from 'clsx'
 import { useEffect, useMemo, useState } from 'react'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useAtomValue } from 'jotai/utils'
 
-import { getPosts } from 'utils/api'
+import { getPosts, Post as PostType } from 'utils/api'
 import { filterPosts } from 'utils/filter'
 import searchAtom from 'atoms/search'
 
@@ -19,10 +20,16 @@ import classes from './index.module.scss'
 
 const PAGE_SIZE = 10
 
-const Home = () => {
+const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [page, setPage] = useState(0)
   const { title, category } = useAtomValue(searchAtom)
-  const { data: posts, isValidating: fetchValidating, error } = useSWR('posts', getPosts)
+  const {
+    data: posts,
+    isValidating: fetchValidating,
+    error,
+  } = useSWR('posts', getPosts, {
+    initialData: props.posts as PostType[],
+  })
 
   const filterData = useMemo(() => {
     if (posts) {
@@ -75,6 +82,17 @@ const Home = () => {
       </Container>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getPosts()
+
+  return {
+    props: {
+      posts,
+    },
+    revalidate: 60,
+  }
 }
 
 export default Home

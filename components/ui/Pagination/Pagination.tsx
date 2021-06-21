@@ -16,7 +16,7 @@ const Pagination: FC<PaginationProps> = ({
   initialPage = 1,
   pageCount = 10,
   marginPagesDisplayed = 1,
-  pageRangeDisplayed = 3,
+  pageRangeDisplayed = 4,
   onPageChange,
   ...props
 }) => {
