@@ -1,0 +1,40 @@
+@use 'sass:math';
+@import '../variables.scss';
+
+@mixin row() {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@mixin column {
+  @include row;
+  flex-direction: column;
+}
+
+@mixin grid-sizes($namespace) {
+  @for $i from 1 through $num-columns {
+    .#{$namespace}#{-col-}#{$i} {
+      flex-basis: percentage(math.div($i, 12));
+      max-width: percentage(math.div($i, 12));
+    }
+  }
+}
+
+@each $breakpoint, $value in $breakpoints {
+  @if ($value != '0px') {
+    @media (min-width: #{$value}) {
+      @include grid-sizes($breakpoint);
+    }
+  }
+}
+
+.row {
+  @include row;
+}
+
+.col {
+  @include column;
+}

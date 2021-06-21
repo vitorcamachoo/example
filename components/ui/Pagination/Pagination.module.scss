@@ -2,22 +2,13 @@
 @import 'styles/mixins/media-queries.scss';
 @import 'styles/palette.scss';
 
-.root {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 .active {
   color: $white;
-  background-color: $primary-main;
+  background-color: $primary;
 }
 
 .pagination {
   display: flex;
-  justify-content: center;
-  align-items: center;
   list-style: none;
   outline: none;
   color: $black;
@@ -34,9 +25,10 @@
     cursor: pointer;
   }
   & > li:hover {
-    background-color: $primary-lighter;
+    color: $white;
+    background-color: lighten($primary-main, 50%);
   }
   & > li > a {
-    @include padding(2, 2, 2, 2);
+    padding: spacing(2);
   }
 }

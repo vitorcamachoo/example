@@ -1,20 +1,39 @@
 @import 'styles/theme';
 
 .root {
+  & .post {
+    margin-bottom: spacing(2);
+  }
+
+  & > * {
+    margin-top: spacing(3);
+    margin-bottom: spacing(3);
+  }
+}
+
+.post {
   display: flex;
   flex-direction: column;
-  padding: spacing(2.5);
-  padding: 16;
+  padding: spacing(4);
   background-color: $white;
   cursor: pointer;
-  margin-bottom: spacing(2);
 
   &:hover {
     box-shadow: lighten($black, 80%) 0px 3px 8px;
   }
 
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid $primary;
+  }
+
   &:active {
     background-color: darken($white, 2%);
+  }
+
+  & > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

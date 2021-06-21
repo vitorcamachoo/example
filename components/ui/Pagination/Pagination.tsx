@@ -21,20 +21,18 @@ const Pagination: FC<PaginationProps> = ({
   ...props
 }) => {
   return (
-    <div className={classes.root}>
-      <ReactPaginate
-        initialPage={initialPage}
-        pageCount={pageCount}
-        marginPagesDisplayed={marginPagesDisplayed}
-        pageRangeDisplayed={pageRangeDisplayed}
-        containerClassName={classes.pagination}
-        activeClassName={classes.active}
-        nextLabel=">"
-        previousLabel="<"
-        onPageChange={(item) => onPageChange(item.selected)}
-        {...props}
-      />
-    </div>
+    <ReactPaginate
+      initialPage={initialPage}
+      pageCount={pageCount}
+      marginPagesDisplayed={marginPagesDisplayed}
+      pageRangeDisplayed={pageRangeDisplayed}
+      containerClassName={classes.pagination}
+      activeClassName={classes.active}
+      nextLabel=">"
+      previousLabel="<"
+      onPageChange={(item) => onPageChange(item.selected)}
+      {...props}
+    />
   )
 }
 

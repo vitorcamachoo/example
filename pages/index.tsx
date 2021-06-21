@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import clsx from 'clsx'
 import { useEffect, useMemo, useState } from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useAtomValue } from 'jotai/utils'
@@ -11,9 +12,9 @@ import Container from 'components/layout/Container/Container'
 import InputSearch from 'components/form/InputSearch'
 import Pagination from 'components/ui/Pagination/Pagination'
 
-import Post from 'components/lists/Post/Post'
-import PostsFilter from 'components/lists/PostsFilter/PostsFilter'
-import NotFoundSearch from 'components/notFound/NotFoundSearch'
+import Posts from 'components/lists/posts/Posts/Posts'
+import PostsFilter from 'components/lists/posts/PostsFilter/PostsFilter'
+import NotFoundSearch from 'components/lists/posts/NotFoundSearch/NotFoundSearch'
 
 import classes from './index.module.scss'
 
@@ -47,33 +48,34 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   useEffect(() => setPage(0), [title, category])
 
   return (
-    <Container>
-      <InputSearch placeholder="Type to search" />
-      <PostsFilter />
-      <div className={classes.content}>
-        <div className={classes.menu}>Menu</div>
-        <div className={classes.list}>
-          {isLoading ? (
-            <> Loading...</>
-          ) : error ? (
-            <NotFoundSearch />
-          ) : (
-            pageData?.map((post) => (
-              <div key={post.id}>
-                <Post key={post.id} {...post} />
-              </div>
-            ))
-          )}
+    <div className={classes.root}>
+      <Container className={classes.container}>
+        <InputSearch placeholder="Type to search" />
+        <div className={clsx('row')}>
+          <div className={clsx('xs-col-12', 'lg-col-2')}>
+            <PostsFilter />
+          </div>
+          <div className={clsx('xs-col-12', 'lg-col-10')}>
+            {isLoading ? (
+              <> Loading...</>
+            ) : error || filterData?.length === 0 ? (
+              <NotFoundSearch />
+            ) : (
+              <Posts posts={pageData} total={filterData?.length} />
+            )}
+          </div>
         </div>
-      </div>
-      {filterData?.length && filterData?.length > PAGE_SIZE ? (
-        <Pagination
-          initialPage={page}
-          pageCount={Math.floor(filterData?.length / PAGE_SIZE)}
-          onPageChange={(nextPage) => setPage(nextPage)}
-        />
-      ) : null}
-    </Container>
+        {filterData?.length && filterData?.length > PAGE_SIZE ? (
+          <div className={classes.pagination}>
+            <Pagination
+              initialPage={page}
+              pageCount={Math.floor(filterData?.length / PAGE_SIZE)}
+              onPageChange={(nextPage) => setPage(nextPage)}
+            />
+          </div>
+        ) : null}
+      </Container>
+    </div>
   )
 }
 

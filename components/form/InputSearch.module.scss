@@ -1,26 +1,31 @@
-@import 'styles/mixins/spacing.scss';
-@import 'styles/mixins/media-queries.scss';
-@import 'styles/palette.scss';
+@import 'styles/theme.scss';
 
 .root {
   display: flex;
+  flex: 1;
+  justify-content: space-between;
   flex-direction: row;
-  align-items: baseline;
-  @include grid(12);
+  align-items: flex-end;
 
   input {
     background-color: $transparent;
     @include padding(2, 2);
     outline: none;
-
+    color: lighten($black, 50%);
+    font-weight: 600;
     caret-color: $secondary-dark;
-    display: block;
     border: 0;
+    width: 50%;
     cursor: pointer;
     font-size: 40px;
+    &:focus {
+      color: $black;
+    }
   }
+
   input::-webkit-input-placeholder {
-    font-size: 16px;
     line-height: 3;
+    font-size: 16px;
+    font-weight: 200;
   }
 }

@@ -1,4 +1,16 @@
 @import 'styles/theme';
 
-.content {
+.root {
+  margin-top: spacing(24);
+}
+
+.container {
+  & > :nth-child(1) {
+    padding-bottom: spacing(5);
+  }
+}
+
+.pagination {
+  margin-top: spacing(8);
+  margin-bottom: spacing(8);
 }

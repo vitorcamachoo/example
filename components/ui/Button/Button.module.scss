@@ -1,0 +1,53 @@
+@import 'styles/theme.scss';
+
+.root {
+  cursor: pointer;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.contained-default,
+.outlined-default {
+  background-color: $transparent;
+  @include button-theme-outlined($black);
+}
+
+.link-default {
+  @include button-theme-link($black);
+}
+
+.link-primary {
+  @include button-theme-link($primary-main);
+}
+
+.link-secondary {
+  @include button-theme-link($secondary-main);
+}
+
+.contained-primary {
+  @include button-theme-contained($primary-light);
+}
+
+.contained-secondary {
+  @include button-theme-contained($secondary-main);
+}
+
+.outlined-primary {
+  @include button-theme-outlined($secondary-main);
+}
+
+.outlined-secondary {
+  @include button-theme-outlined($secondary-main);
+}
+
+.small {
+  @include padding(0.5, 1, 0.5, 1);
+}
+
+.medium {
+  @include padding(1.25, 1, 1.25, 1);
+}
+
+.large {
+  @include padding(1.75, 3.5, 1.75, 3.5);
+}

@@ -1,6 +1,10 @@
 // mixins
 @import './mixins/media-queries.scss';
 @import './mixins/spacing.scss';
+@import './mixins/grid.scss';
+@import './mixins/container.scss';
+@import './mixins/flex.scss';
+@import './mixins/button.scss';
 
 // core
 @import './palette.scss';

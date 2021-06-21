@@ -1,0 +1,52 @@
+@import '../variables.scss';
+
+@mixin button-theme-link($color) {
+  border: 0;
+  outline: 0;
+  color: $color;
+  background-color: $transparent;
+
+  &:hover,
+  &:active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 4px solid $color;
+  }
+}
+
+@mixin button-theme-contained($color) {
+  color: $white;
+  border: 0;
+  outline: 0;
+  background-color: $color;
+
+  &:hover,
+  &:focus {
+    background-color: lighten($color, 10%);
+  }
+
+  &:active {
+    background-color: darken($color, 5%);
+  }
+}
+
+@mixin button-theme-outlined($color) {
+  border: 2px solid darken($color, 10%);
+  border-radius: 4px;
+  background-color: $white;
+  color: $color;
+
+  &:hover,
+  &:focus {
+    color: darken($color, 10%);
+    border-color: darken($color, 10%);
+    background-color: lighten($color, 95%);
+    outline: darken($color, 20%);
+  }
+
+  &:active {
+    color: darken($color, 5%);
+    border-color: darken($color, 5%);
+    background-color: lighten($color, 85%);
+  }
+}

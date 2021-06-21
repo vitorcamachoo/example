@@ -1,0 +1,70 @@
+@import 'styles/theme.scss';
+
+.list {
+  display: flex;
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+  width: 100%;
+
+  @include xs {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      margin-top: spacing(2);
+      margin-bottom: spacing(2);
+      margin-right: spacing(1);
+    }
+  }
+
+  @include lg {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    & > * {
+      height: 1rem;
+      margin-bottom: spacing(2);
+    }
+  }
+}
+
+.item {
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 0;
+  outline: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: $black;
+  background-color: $transparent;
+  width: fit-content;
+
+  @include downLg {
+    border: 0;
+    border-radius: 4px;
+    text-transform: uppercase;
+
+    @include padding(0.75, 1, 0.75, 1);
+
+    &.selected {
+      border: 2px solid darken($black, 10%);
+    }
+  }
+
+  @include lg {
+    & > div {
+      @include padding(0.75, 1, 0.75, 1);
+    }
+
+    &:hover:not(.selected) {
+      border-bottom: 1px solid $black;
+    }
+    &.selected {
+      border-bottom: 2px solid $black;
+    }
+  }
+}
